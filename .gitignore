@@ -1,0 +1,17 @@
+# Ignore save games and world chunk data (can be gigabytes)
+Saves/
+db/
+Server/*_player.db
+Server/*_crafting.db
+
+# Ignore logs, crash dumps, and caches
+Logs/
+Lua/
+console.txt
+coop-console.txt
+*_crash.txt
+*.log
+
+# Ignore temporary server lock/state files
+Server/*.lock
+Server/*.tmp
