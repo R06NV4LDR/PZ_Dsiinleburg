@@ -484,7 +484,7 @@ SandboxVars = {
     -- 3 = Wenig
     -- 4 = Normal
     -- 5 = Hoch
-    CarSpawnRate = 3,
+    CarSpawnRate = 5,
     -- Verwende dies, um die allgemeine Lautstärke des Motors zu reduzieren oder zu erhöhen. Minimum=0.00 Maximum=100.00 Standard=1.00
     ZombieAttractionMultiplier = 1.0,
     -- Regelt, ob Autos verschlossen sind, Schlüssel zum Starten benötigen usw.
@@ -706,7 +706,7 @@ SandboxVars = {
     -- 4 = 1 Punkt Strafe für jede gewählte negative Eigenschaft nach der ersten
     NegativeTraitsPenalty = 1,
     -- Dauer in Spielwelt-Minuten, die zum Lesen einer Seite benötigt wird. Minimum=0.00 Maximum=60.00 Standard=2.00
-    MinutesPerPage = 2.0,
+    MinutesPerPage = 0.5,
     -- Wenn aktiv, sterben Nutzpflanzen und Kräuter, die in Gebäuden wachsen. Gilt nicht für Hauspflanzen.
     KillInsideCrops = true,
     -- Wenn aktiv, wird der Pflanzenwachstum von Jahreszeiten beeinflusst.
@@ -1017,15 +1017,6 @@ SandboxVars = {
         -- Rate at which Glassmaking skill levels up. Minimum=0.00 Maximum=1000.00 Standard=1.00
         Glassmaking = 1.0,
     },
-    RVAddon = {
-        CustomNormalVehicles = "",
-        CustomBusVehicles = "",
-        CustomSmallVehicles = "",
-        Custom3x2Caravan = "",
-        Custom3x6Caravan = "",
-        Custom3x7Empty = "",
-        Custom4x12colossal = "",
-    },
     DAMN = {
         AllowPowerChadSpawns = true,
         AllowGreatScottSpawns = false,
@@ -1035,76 +1026,131 @@ SandboxVars = {
         AllowMcBoxySpawns = true,
     },
     CommonSense = {
+        -- Aktiviert/Deaktiviert, ob Spieler Türen, Fenster usw. mit einem Brecheisen aufhebeln können.
         PryingMechanic = true,
+        -- Aktiviert/Deaktiviert eine benutzerdefinierte Benutzeroberfläche, die den Munitionstyp, die aktuelle Munitionsmenge, den Zustand usw. einer Waffe anzeigt, wenn eine ausgerüstet ist.
         GunStats = true,
+        -- Aktiviert/Deaktiviert benutzerfreundliche Farben der Benutzeroberfläche für Personen, die von Farbenblindheit betroffen sind.
         ColorFilter = false,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäudetüren wie Haustüren, Wohnungstüren usw. aufhebeln können.
         PryBuildingDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Garagentore aufhebeln können.
         PryGarageDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können.
+        -- Diese Türen können nicht aufgehebelt werden, es sei denn, der Spieler hat ein Kraftlevel, das gleich oder höher ist als das Mindestlevel der verstärkten Tür.
         PrySafeDoors = false,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäude-Fenster wie Hausfenster, Apartmentfenster usw. aufhebeln können.
         PryWindows = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Fahrzeugtüren aufhebeln können.
         PryVehicleDoors = true,
+        -- Bestimmt, ob Spieler versehentlich die Scheiben von Fahrzeugtüren zerschlagen können, wenn sie beim Aufhebeln fehlschlagen.
+        -- Wenn aktiviert, kann dies zufällig (basierend auf der Einstellung für die Chance auf Fensterscherben) geschehen.
         ShatterVehicleWindows = true,
-        -- Minimum=0 Maximum=10 Standard=8
+        -- Bestimmt das Mindeststärkeniveau, auf dem Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können. Minimum=0 Maximum=10 Standard=8
         ReinforcedDoorLevel = 8,
-        -- Minimum=0 Maximum=100 Standard=20
+        -- Bestimmt die Chance, dass das Glas eines Fensters zerbricht, wenn ein Spieler einen Versuch, es aufzuhebeln, fehlschlägt. Minimum=0 Maximum=100 Standard=20
         WindowShatterChance = 20,
-        -- Minimum=0.00 Maximum=5.00 Standard=1.00
+        -- Bestimmt die Schwierigkeit, Objekte mit einem Brecheisen aufzuhebeln.
+        -- Ein höherer Multiplikator erschwert das erfolgreiche Aufhebeln von Objekten, während ein niedrigerer Multiplikator es erleichtert.
+        -- 0 = Immer erfolgreich.
+        -- 1 = Standard-Schwierigkeit.
+        -- 5 = Höchste Schwierigkeit. Minimum=0.00 Maximum=5.00 Standard=1.00
         PryingChanceMultiplier = 1.0,
-        -- Minimum=0 Maximum=100 Standard=10
+        -- Wahrscheinlichkeit, sich beim Öffnen von Dosen mit Messern oder Scheren zu verletzen. Minimum=0 Maximum=100 Standard=10
         CanWoundChance = 33,
-        -- Minimum=0.00 Maximum=10.00 Standard=1.00
+        -- Multiplies the severity of injuries caused when opening cans with improvised tools. Minimum=0.00 Maximum=10.00 Standard=1.00
         CanWoundIntensity = 0.5,
+        -- Enables the action that removes lodged bullets by hand from the health panel. The action is disabled by default, returns a bloody bullet and worsens the wound.
         RemoveBulletsByHand = false,
+        -- Uses the custom BulletOut animation while removing a bullet by hand. Disabled by default because the animation is experimental. This option has no effect unless the action above is enabled.
         RemoveBulletsByHandAnimation = false,
+        -- Aktiviert/Deaktiviert, ob Spieler Türen, Fenster usw. mit einem Brecheisen aufhebeln können.
         PryingMechanic = true,
+        -- Aktiviert/Deaktiviert eine benutzerdefinierte Benutzeroberfläche, die den Munitionstyp, die aktuelle Munitionsmenge, den Zustand usw. einer Waffe anzeigt, wenn eine ausgerüstet ist.
         GunStats = true,
+        -- Aktiviert/Deaktiviert die Fähigkeit, offensichtliche Dinge vom Boden aufzunehmen, wie z. B. Zweige, Steine, Unkraut, Büsche usw.
         ObviousCollecting = true,
+        -- Aktiviert/Deaktiviert benutzerfreundliche Farben der Benutzeroberfläche für Personen, die von Farbenblindheit betroffen sind.
         ColorFilter = false,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäudetüren wie Haustüren, Wohnungstüren usw. aufhebeln können.
         PryBuildingDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Garagentore aufhebeln können.
         PryGarageDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können.
+        -- Diese Türen können nicht aufgehebelt werden, es sei denn, der Spieler hat ein Kraftlevel, das gleich oder höher ist als das Mindestlevel der verstärkten Tür.
         PrySafeDoors = false,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäude-Fenster wie Hausfenster, Apartmentfenster usw. aufhebeln können.
         PryWindows = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Fahrzeugtüren aufhebeln können.
         PryVehicleDoors = true,
+        -- Bestimmt, ob Spieler versehentlich die Scheiben von Fahrzeugtüren zerschlagen können, wenn sie beim Aufhebeln fehlschlagen.
+        -- Wenn aktiviert, kann dies zufällig (basierend auf der Einstellung für die Chance auf Fensterscherben) geschehen.
         ShatterVehicleWindows = true,
-        -- Minimum=0 Maximum=10 Standard=8
+        -- Bestimmt das Mindeststärkeniveau, auf dem Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können. Minimum=0 Maximum=10 Standard=8
         ReinforcedDoorLevel = 8,
-        -- Minimum=0 Maximum=100 Standard=20
+        -- Bestimmt die Chance, dass das Glas eines Fensters zerbricht, wenn ein Spieler einen Versuch, es aufzuhebeln, fehlschlägt. Minimum=0 Maximum=100 Standard=20
         WindowShatterChance = 20,
-        -- Minimum=0.00 Maximum=5.00 Standard=1.00
+        -- Bestimmt die Schwierigkeit, Objekte mit einem Brecheisen aufzuhebeln.
+        -- Ein höherer Multiplikator erschwert das erfolgreiche Aufhebeln von Objekten, während ein niedrigerer Multiplikator es erleichtert.
+        -- 0 = Immer erfolgreich.
+        -- 1 = Standard-Schwierigkeit.
+        -- 5 = Höchste Schwierigkeit. Minimum=0.00 Maximum=5.00 Standard=1.00
         PryingChanceMultiplier = 1.0,
+        -- Aktiviert/Deaktiviert, ob das Entfernen offensichtlicher Dinge vom Boden, wie z. B. Zweige, Steine, Unkraut, Büsche usw., dem Spieler den gerade entfernten Gegenstand gewährt.
         DisableLoot = false,
-        -- Minimum=0.00 Maximum=100.00 Standard=1.00
+        -- Multipliziert die Menge der Beute, die der Spieler beim Aufheben offensichtlicher Dinge vom Boden erhält. Minimum=0.00 Maximum=100.00 Standard=1.00
         LootMultiplier = 1.0,
-        -- Minimum=0 Maximum=100 Standard=15
+        -- Wahrscheinlichkeit, sich beim Öffnen von Dosen mit Messern oder Scheren zu verletzen. Minimum=0 Maximum=100 Standard=15
         CanWoundChance = 33,
-        -- Minimum=0.00 Maximum=1.00 Standard=0.50
+        -- Multiplies the severity of injuries caused when opening cans with improvised tools. Minimum=0.00 Maximum=1.00 Standard=0.50
         CanWoundIntensity = 0.5,
+        -- Aktiviert/Deaktiviert die Fähigkeit, offensichtliche Dinge vom Boden aufzunehmen, wie z. B. Zweige, Steine, Unkraut, Büsche usw.
         ObviousCollecting = true,
+        -- Aktiviert/Deaktiviert, ob das Entfernen offensichtlicher Dinge vom Boden, wie z. B. Zweige, Steine, Unkraut, Büsche usw., dem Spieler den gerade entfernten Gegenstand gewährt.
         DisableLoot = false,
-        -- Minimum=0.00 Maximum=100.00 Standard=1.00
+        -- Multipliziert die Menge der Beute, die der Spieler beim Aufheben offensichtlicher Dinge vom Boden erhält. Minimum=0.00 Maximum=100.00 Standard=1.00
         LootMultiplier = 1.0,
+        -- Aktiviert/Deaktiviert, ob Spieler Türen, Fenster usw. mit einem Brecheisen aufhebeln können.
         PryingMechanic = true,
-        -- Minimum=0.00 Maximum=5.00 Standard=1.00
+        -- Bestimmt die Schwierigkeit, Objekte mit einem Brecheisen aufzuhebeln.
+        -- Ein höherer Multiplikator erschwert das erfolgreiche Aufhebeln von Objekten, während ein niedrigerer Multiplikator es erleichtert.
+        -- 0 = Immer erfolgreich.
+        -- 1 = Standard-Schwierigkeit.
+        -- 5 = Höchste Schwierigkeit. Minimum=0.00 Maximum=5.00 Standard=1.00
         PryingChanceMultiplier = 1.0,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäudetüren wie Haustüren, Wohnungstüren usw. aufhebeln können.
         PryBuildingDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Gebäude-Fenster wie Hausfenster, Apartmentfenster usw. aufhebeln können.
         PryWindows = true,
-        -- Minimum=0 Maximum=100 Standard=20
+        -- Bestimmt die Chance, dass das Glas eines Fensters zerbricht, wenn ein Spieler einen Versuch, es aufzuhebeln, fehlschlägt. Minimum=0 Maximum=100 Standard=20
         WindowShatterChance = 20,
+        -- Aktiviert/Deaktiviert, ob Spieler Garagentore aufhebeln können.
         PryGarageDoors = true,
+        -- Aktiviert/Deaktiviert, ob Spieler Fahrzeugtüren aufhebeln können.
         PryVehicleDoors = true,
+        -- Bestimmt, ob Spieler versehentlich die Scheiben von Fahrzeugtüren zerschlagen können, wenn sie beim Aufhebeln fehlschlagen.
+        -- Wenn aktiviert, kann dies zufällig (basierend auf der Einstellung für die Chance auf Fensterscherben) geschehen.
         ShatterVehicleWindows = true,
+        -- Aktiviert/Deaktiviert, ob Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können.
+        -- Diese Türen können nicht aufgehebelt werden, es sei denn, der Spieler hat ein Kraftlevel, das gleich oder höher ist als das Mindestlevel der verstärkten Tür.
         PrySafeDoors = false,
-        -- Minimum=0 Maximum=10 Standard=8
+        -- Bestimmt das Mindeststärkeniveau, auf dem Spieler verstärkte Türen (Gefängnistüren, Türen mit Metallgitter usw.) aufhebeln können. Minimum=0 Maximum=10 Standard=8
         ReinforcedDoorLevel = 8,
+        -- Aktiviert/Deaktiviert eine benutzerdefinierte Benutzeroberfläche, die den Munitionstyp, die aktuelle Munitionsmenge, den Zustand usw. einer Waffe anzeigt, wenn eine ausgerüstet ist.
         GunStats = true,
-        -- Minimum=0 Maximum=100 Standard=33
+        -- Wahrscheinlichkeit, sich beim Öffnen von Dosen mit Messern oder Scheren zu verletzen. Minimum=0 Maximum=100 Standard=33
         CanWoundChance = 33,
+        -- Aktiviert/deaktiviert das Menü zum direkten Ersetzen verschmutzter Verbände.
         ReplaceBandage = true,
+        -- Aktiviert/deaktiviert das Menü zum Waschen nur ausgerüsteter oder nicht ausgerüsteter Gegenstände.
         WashOnly = true,
+        -- Aktiviert/deaktiviert das Menü zum automatischen Nachladen aller ausgewählten Magazine.
         ReloadAllMags = true,
     },
     DynamicHordeEvents = {
+        -- Master switch for Dynamic Horde Events. Disable this to stop all scheduled horde event timers. Use the per-event toggles below to disable only one horde type.
         Enabled = true,
+        -- Enables the scheduled regular horde event. Cataclysm and wandering hordes have their own toggles and are not affected by this setting.
         EnableNormalHorde = true,
         -- Minimum=1 Maximum=720 Standard=12
         MinSpawnHours = 12,
@@ -1116,13 +1162,13 @@ SandboxVars = {
         MinZombies = 5,
         -- Minimum=1 Maximum=500 Standard=30
         MaxZombies = 30,
-        -- Minimum=1 Maximum=3 Standard=2
+        -- Controls whether horde size increases over time. 1 Off disables scaling. 2 Days survived scales by survived days. 3 Months survived scales by survived months. Minimum=1 Maximum=3 Standard=2
         ScalingMode = 2,
-        -- Minimum=1 Maximum=365 Standard=7
+        -- How many days or months must pass before the horde size multiplier increases. Minimum=1 Maximum=365 Standard=7
         ScalingInterval = 7,
-        -- Minimum=0 Maximum=1000 Standard=10
+        -- How much the horde size increases per scaling interval. Example: 25 means +25% per interval. Minimum=0 Maximum=1000 Standard=10
         ScalingMultiplierPercent = 10,
-        -- Minimum=100 Maximum=2000 Standard=150
+        -- Maximum total horde size multiplier. Example: 300 means the horde size can grow up to x3.Do not set 100. If you dont want scaling off disable it in scaling mode Minimum=100 Maximum=2000 Standard=150
         ScalingMaxMultiplierPercent = 150,
         -- Minimum=10 Maximum=500 Standard=80
         MinSpawnRadius = 80,
@@ -1141,16 +1187,20 @@ SandboxVars = {
         AttractionRadius = 500,
         -- Minimum=10 Maximum=1000 Standard=500
         AttractionVolume = 500,
+        -- When enabled, zombies spawned by a normal horde keep periodically refreshing their target, aggro, and last-heard position to the selected player while they are alive. The normal attraction sound is still emitted, but this does not create extra sound pulses or cataclysm catch-up respawns.
         EnableNormalHordePursuit = false,
+        -- Requires normal horde target tracking. Periodically asks spawned normal horde zombies to rebuild a path to the selected player, which can help with high fences and different floors. This uses no extra sound pulses, but can make normal hordes more direct and slightly increase server AI work.
         EnableNormalHordePathAssist = false,
-        -- Minimum=1 Maximum=30 Standard=7
+        -- Delay before the single attraction sound is emitted after spawning zombies in multiplayer. Values below 6 seconds may fail to attract spawned MP zombies. Increase this if the server has high load Minimum=1 Maximum=30 Standard=7
         MPAttractionDelaySeconds = 7,
+        -- In multiplayer, clamps normal and wandering horde spawn distance so freshly spawned zombies stay in the active simulation area and can hear the single attraction sound.
         EnableMPActiveSpawnClamp = true,
-        -- Minimum=30 Maximum=250 Standard=70
+        -- Maximum spawn distance for normal and wandering hordes in multiplayer when active spawn clamp is enabled. Higher values can spawn zombies outside active AI range, causing them to ignore the attraction sound. Minimum=30 Maximum=250 Standard=70
         MPActiveSpawnMaxRadius = 70,
         AvoidIndoorSpawn = true,
         -- Minimum=1 Maximum=200 Standard=64
         SpawnSearchAttempts = 64,
+        -- Enables a rare ultra-hardcore horde event with its own timer and warning indicator.
         EnableCataclysmHorde = true,
         -- Minimum=1 Maximum=3650 Standard=90
         CataclysmMinDays = 90,
@@ -1170,26 +1220,32 @@ SandboxVars = {
         CataclysmAttractionRadius = 800,
         -- Minimum=10 Maximum=2000 Standard=800
         CataclysmAttractionVolume = 800,
+        -- When enabled, zombies spawned by a cataclysm horde are forced to pursue the selected player directly. The cataclysm attraction sound is still emitted.
         EnableCataclysmPursuit = true,
-        -- Minimum=0.25 Maximum=24.00 Standard=4.00
+        -- How many in-game hours cataclysm zombies should keep directly pursuing the selected player. After this, the mod stops reinforcing the direct target. Minimum=0.25 Maximum=24.00 Standard=4.00
         CataclysmPursuitHours = 4.0,
+        -- Attempts to force severe weather when a cataclysm horde starts.
         EnableCataclysmWeather = true,
-        -- Minimum=1 Maximum=72 Standard=8
+        -- How long the cataclysm weather event should last. The mod first tries a tropical storm, then falls back to storm, rain, lightning, and custom weather calls if needed. Minimum=1 Maximum=72 Standard=8
         CataclysmWeatherDurationHours = 8,
+        -- Adds climate overrides on top of the tropical storm: fog, strong wind, heavy clouds and desaturation. Overrides are reset after the cataclysm weather duration.
         EnableCataclysmFogWind = true,
-        -- Minimum=0.00 Maximum=1.00 Standard=1.00
+        -- Fog intensity forced during cataclysm weather. 0 disables extra fog, 1 is maximum fog. Minimum=0.00 Maximum=1.00 Standard=1.00
         CataclysmFogIntensity = 1.0,
-        -- Minimum=0.00 Maximum=1.00 Standard=0.75
+        -- Wind intensity forced during cataclysm weather. 0 disables extra wind, 1 is maximum wind. Minimum=0.00 Maximum=1.00 Standard=0.75
         CataclysmWindIntensity = 0.75,
-        -- Minimum=0.00 Maximum=1.00 Standard=1.00
+        -- Cloud intensity forced during cataclysm weather. Higher values make the storm look darker and heavier. Minimum=0.00 Maximum=1.00 Standard=1.00
         CataclysmCloudIntensity = 1.0,
-        -- Minimum=0.00 Maximum=1.00 Standard=0.45
+        -- Visual desaturation during cataclysm weather. Higher values make the world look more bleak and storm-heavy. Minimum=0.00 Maximum=1.00 Standard=0.45
         CataclysmDesaturation = 0.45,
         EnableCataclysmScreenEffect = true,
         -- Minimum=0 Maximum=120 Standard=15
         CataclysmScreenEffectSeconds = 15,
+        -- When a normal horde event starts, the player character says a short random warning line above their head.
         EnableNormalHordeSpeech = true,
+        -- When a cataclysm horde event starts, the player character says a more intense random warning line above their head.
         EnableCataclysmHordeSpeech = true,
+        -- Enables a separate passing horde event. The horde spawns on one side of the player and is attracted toward a point beyond the player area, so it may pass by if you stay quiet.
         EnableWanderingHorde = true,
         -- Minimum=1 Maximum=720 Standard=48
         WanderingMinHours = 48,
@@ -1203,9 +1259,9 @@ SandboxVars = {
         WanderingMinSpawnRadius = 140,
         -- Minimum=10 Maximum=500 Standard=220
         WanderingMaxSpawnRadius = 220,
-        -- Minimum=50 Maximum=800 Standard=300
+        -- How far beyond the player the attraction point is placed. Higher values make the horde try to pass farther through the area instead of stopping near the player. Minimum=50 Maximum=800 Standard=300
         WanderingExitDistance = 300,
-        -- Minimum=4 Maximum=120 Standard=18
+        -- How wide the wandering horde spawn formation is. Higher values make the horde look less like a single clump. Minimum=4 Maximum=120 Standard=18
         WanderingSpread = 18,
         -- Minimum=5 Maximum=600 Standard=35
         WanderingIndicatorSeconds = 35,
@@ -1213,6 +1269,7 @@ SandboxVars = {
         WanderingAttractionRadius = 900,
         -- Minimum=10 Maximum=2000 Standard=900
         WanderingAttractionVolume = 900,
+        -- When a wandering horde event starts, the player character says a short random line about staying quiet or letting the horde pass.
         EnableWanderingHordeSpeech = true,
         Debug = false,
         EnableDebugContextMenu = false,
@@ -1223,31 +1280,36 @@ SandboxVars = {
         TestZombieCount = 10,
     },
     EatSmart = {
+        -- When enabled, calorie and protein options don't show up if you don't have the Nutritionist trait.
         NeedNutritionist = false,
     },
     KillCount = {
+        -- May provoke stutters.
         doExport = false,
+        -- Includes all kills into the final value in Post Death floating text.
         includePostDeathUI = true,
-        -- Minimum=0 Maximum=10000000 Standard=500
+        -- Target time (in milliseconds) between two updates in multiplayer. Small value gives reactivity. High value reduces network use and server workload. Minimum=0 Maximum=10000000 Standard=500
         MaxUpdateDelay = 500,
+        -- Each client can see every character score. Deactivate on (very large) servers to reduce Global Mod Data transfer load.
         shareOnServer = true,
+        -- Dead characters are kept and count toward server kills. Deactivate for server that never wipe.
         keepTrackOfDead = true,
     },
-    RainCleansBlood = {
-        -- Minimum=1 Maximum=60 Standard=10
-        TilesPerMinute = 10,
-        -- Minimum=0.05 Maximum=0.95 Standard=0.25
-        WeatherThreshold = 0.25,
-        AlsoCleanAsh = true,
-        AlsoCleanDroppings = true,
-        AlsoCleanInside = false,
-        AlsoCleanVehicles = true,
-        -- Minimum=0.10 Maximum=1.00 Standard=0.10
-        VehicleCleanSpeed = 0.1,
-        AlsoCleanClothes = true,
-        -- Minimum=1.00 Maximum=10.00 Standard=1.00
-        ClothesCleanSpeed = 1.0,
-        AlwaysClean = false,
+    RVAddon = {
+        -- Comma-separated list of vehicle script names (e.g., Base.Van,Base.StepVan,Base.VanSpiffo).
+        CustomNormalVehicles = "",
+        -- Comma-separated list of bus vehicle script names.
+        CustomBusVehicles = "",
+        -- Comma-separated list of small vehicle script names.
+        CustomSmallVehicles = "",
+        -- Comma-separated list of 3x2 caravan/trailer script names.
+        Custom3x2Caravan = "",
+        -- Comma-separated list of 3x6 caravan/trailer script names.
+        Custom3x6Caravan = "",
+        -- Comma-separated list of 3x7 empty trailer script names.
+        Custom3x7Empty = "",
+        -- Comma-separated list of 4x12 colossal vehicle script names.
+        Custom4x12colossal = "",
     },
     PWPNXB = {
         -- Minimum=0.00 Maximum=1000.00 Standard=1.00
@@ -1276,5 +1338,27 @@ SandboxVars = {
         BoltSIBaseBreakChance = 75,
         -- Minimum=0 Maximum=100 Standard=2
         BoltSIBreakChanceScaling = 2,
+    },
+    RainCleansBlood = {
+        -- Wie viele zufällige Kacheln pro Spielminute gereinigt werden. Minimum=1 Maximum=60 Standard=10
+        TilesPerMinute = 10,
+        -- Wie stark Regen oder Schnee sein muss, bevor Blut weggewaschen wird. Höher = stärkeres Wetter erforderlich. Minimum=0.05 Maximum=0.95 Standard=0.25
+        WeatherThreshold = 0.25,
+        -- Reinigt auch die Asche verbrannter Leichen.
+        AlsoCleanAsh = true,
+        -- Reinigt auch Tierkot (Dung), der auf dem Boden liegt.
+        AlsoCleanDroppings = true,
+        -- Reinigt auch Blut in Gebäuden.
+        AlsoCleanInside = false,
+        -- Reinigt auch allmählich Blut von Fahrzeugen.
+        AlsoCleanVehicles = true,
+        -- Wie viel Blut pro Minute von Fahrzeugen entfernt wird. Minimum=0.10 Maximum=1.00 Standard=0.10
+        VehicleCleanSpeed = 0.1,
+        -- Reinigt auch allmählich Blut und Schmutz von der getragenen Kleidung der Spieler.
+        AlsoCleanClothes = true,
+        -- Wie viel Blut und Schmutz pro Minute von der Kleidung entfernt wird. Minimum=1.00 Maximum=10.00 Standard=1.00
+        ClothesCleanSpeed = 1.0,
+        -- Reinigt immer, unabhängig vom Wetter.
+        AlwaysClean = false,
     },
 }
