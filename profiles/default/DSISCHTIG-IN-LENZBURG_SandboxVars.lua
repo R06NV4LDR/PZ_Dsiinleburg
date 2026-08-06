@@ -372,7 +372,7 @@ SandboxVars = {
     -- 6 = Sehr oft
     AnnotatedMapChance = 4,
     -- Fügt bei der Charakter-Erstellung freie Punkte hinzu. Minimum=-100 Maximum=100 Standard=0
-    CharacterFreePoints = 0,
+    CharacterFreePoints = 20,
     -- Gibt den von Spielern gebauten Konstruktionen zusätzliche Trefferpunkte, so dass sie widerstandsfähiger gegen Zombie-Schäden sind. Standard=Normal
     -- 1 = Sehr niedrig
     -- 2 = Niedrig
@@ -562,7 +562,7 @@ SandboxVars = {
     -- 4 = Hoch
     RecentlySurvivorVehicles = 2,
     -- Wenn aktiviert, gewisse Nahkampfwaffen können mehrere Zombies mit einem Schlag treffen.
-    MultiHitZombies = false,
+    MultiHitZombies = true,
     -- Chance gebissen zu werden, wenn ein Zombie von hinten angreift. Standard=Hoch
     -- 1 = Niedrig
     -- 2 = Mittel
@@ -775,7 +775,7 @@ SandboxVars = {
     },
     Map = {
         -- Wenn diese Option aktiviert ist, wird ein Minikartenfenster angezeigt.
-        AllowMiniMap = false,
+        AllowMiniMap = true,
         -- Wenn diese Option aktiviert ist, kann auf die Weltkarte zugegriffen werden.
         AllowWorldMap = true,
         -- Wenn diese Option aktiviert ist, wird die Weltkarte beim Spielstart komplett bekannt sein.
@@ -943,7 +943,7 @@ SandboxVars = {
     },
     MultiplierConfig = {
         -- Bestimmt die Rate, mit der sich alle Fähigkeiten entwickeln. Minimum=0.00 Maximum=1000.00 Standard=1.00
-        Global = 1.0,
+        Global = 2.0,
         -- Wenn diese Option aktiviert wird, werden alle Fähigkeiten den globalen Multiplikator verwenden.
         GlobalToggle = true,
         -- Bestimmt die Rate, mit der sich die Fitness-Fähigkeit entwickelt. Minimum=0.00 Maximum=1000.00 Standard=1.00
@@ -1016,6 +1016,15 @@ SandboxVars = {
         Butchering = 1.0,
         -- Rate at which Glassmaking skill levels up. Minimum=0.00 Maximum=1000.00 Standard=1.00
         Glassmaking = 1.0,
+    },
+    RVAddon = {
+        CustomNormalVehicles = "",
+        CustomBusVehicles = "",
+        CustomSmallVehicles = "",
+        Custom3x2Caravan = "",
+        Custom3x6Caravan = "",
+        Custom3x7Empty = "",
+        Custom4x12colossal = "",
     },
     DAMN = {
         AllowPowerChadSpawns = true,
@@ -1224,14 +1233,21 @@ SandboxVars = {
         shareOnServer = true,
         keepTrackOfDead = true,
     },
-    RVAddon = {
-        CustomNormalVehicles = "",
-        CustomBusVehicles = "",
-        CustomSmallVehicles = "",
-        Custom3x2Caravan = "",
-        Custom3x6Caravan = "",
-        Custom3x7Empty = "",
-        Custom4x12colossal = "",
+    RainCleansBlood = {
+        -- Minimum=1 Maximum=60 Standard=10
+        TilesPerMinute = 10,
+        -- Minimum=0.05 Maximum=0.95 Standard=0.25
+        WeatherThreshold = 0.25,
+        AlsoCleanAsh = true,
+        AlsoCleanDroppings = true,
+        AlsoCleanInside = false,
+        AlsoCleanVehicles = true,
+        -- Minimum=0.10 Maximum=1.00 Standard=0.10
+        VehicleCleanSpeed = 0.1,
+        AlsoCleanClothes = true,
+        -- Minimum=1.00 Maximum=10.00 Standard=1.00
+        ClothesCleanSpeed = 1.0,
+        AlwaysClean = false,
     },
     PWPNXB = {
         -- Minimum=0.00 Maximum=1000.00 Standard=1.00
@@ -1260,21 +1276,5 @@ SandboxVars = {
         BoltSIBaseBreakChance = 75,
         -- Minimum=0 Maximum=100 Standard=2
         BoltSIBreakChanceScaling = 2,
-    },
-    RainCleansBlood = {
-        -- Minimum=1 Maximum=60 Standard=10
-        TilesPerMinute = 10,
-        -- Minimum=0.05 Maximum=0.95 Standard=0.25
-        WeatherThreshold = 0.25,
-        AlsoCleanAsh = true,
-        AlsoCleanDroppings = true,
-        AlsoCleanInside = false,
-        AlsoCleanVehicles = true,
-        -- Minimum=0.10 Maximum=1.00 Standard=0.10
-        VehicleCleanSpeed = 0.1,
-        AlsoCleanClothes = true,
-        -- Minimum=1.00 Maximum=10.00 Standard=1.00
-        ClothesCleanSpeed = 1.0,
-        AlwaysClean = false,
     },
 }
