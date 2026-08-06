@@ -30,3 +30,5 @@ Falls das automatische Skript fehlschlägt, kannst du die Dateien manuell kopier
 2. Tippe exakt folgendes ein und drücke Enter:
    ```text
    %USERPROFILE%\Zomboid\Server
+
+-
