@@ -31,4 +31,4 @@ Falls das automatische Skript fehlschlägt, kannst du die Dateien manuell kopier
    ```text
    %USERPROFILE%\Zomboid\Server
 
--
+- LESEGESCHWINDIGKEIT
